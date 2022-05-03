@@ -1,0 +1,110 @@
+@import "../../../common.scss";
+
+.status_wrap {
+  margin-bottom: 5rem;
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  transition: .3s;
+  box-shadow: 0 0 15px -3px #777777;
+
+  &-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #616161;
+  }
+
+  &-top {
+    @include flex_box();
+    @include flex_space_between();
+    @include flex_align_center();
+    padding-top: 2rem;
+    padding-left: 2.4rem;
+  }
+
+  &-body {
+    @include flex_box();
+    @include flex_content_around();
+    @include flex_align_center();
+    height: calc(100% - 4.4rem);
+    input[type=radio] {
+      display: none; /* ラジオボタンを非表示にする */
+    }
+  }
+}
+
+.vacancy {
+  transition: .3s;
+  background-color: #DEF8E8;
+}
+
+.few {
+  transition: .3s;
+  background-color: #FFF2DF;
+}
+
+.fullHouse {
+  transition: .3s;
+  background-color: #FFE8E8;
+}
+
+.status-button {
+  font-size: 1.6rem;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  line-height: 3.5;
+  width: 60px;
+  height: 60px;
+  border-radius: 100vh;
+  color: #fff;
+  background: #02289B;
+}
+
+.config-wrap {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+/* 担当切り替えボタン */
+@mixin btnStyleSystemPersonInCharge() {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 100vh;
+  background: #7a7a7a;
+  color: #fff;
+  padding: 1.2rem 1.5rem;
+  font-size: 16px;
+  box-shadow: 0 12px 14px -5px #777777;
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.custom-button {
+  @include btnStyleSystemPersonInCharge();
+  > img {
+    padding-top: .2rem;
+  }
+}
+
+.logout {
+  line-height: 0;
+  &-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    line-height: 0;
+    appearance: none;
+  }
+  &:active {
+    opacity: 0.7;
+  }
+}
+

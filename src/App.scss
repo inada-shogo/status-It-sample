@@ -1,0 +1,375 @@
+/******************************************
+                                       定義ファイルの設定
+******************************************/
+
+@charset "utf-8";
+
+@import "./common.scss";
+
+
+html {
+  user-select: none;
+  width: 100%;
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #fafafa;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  margin: 0 auto;
+  padding: 0;
+  color: $baseFontColor;
+  line-height: 1.4;
+  word-wrap: break-word;
+  font-family: $commonFont;
+}
+
+$breakpoints: (
+  //320px~767px（スマホサイズ）
+  "sp": "screen and (max-width: 767px)",
+  //画面サイズが991pxまでの場合、styleを適用
+  "pc": "screen and (max-width: 991px)",
+  //画面サイズが1199pxまでの場合、styleを適用
+  "pc_lg": "screen and (max-width: 1199px)"
+) !default;
+
+@mixin mq($breakpoint: pc_lg) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+* {
+  word-break: break-word;
+}
+
+.br_767 {
+  display: none;
+}
+
+@include mq($breakpoint: sp) {
+  //320px~767px（スマホサイズ）
+  .br_767 {
+    display: block;
+  }
+}
+
+// 標準のスタイルを無効にする
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+@mixin flex_box() {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex_align_baseline() {
+  align-items: baseline;
+}
+
+@mixin flex_align_start() {
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+@mixin flex_align_stretch() {
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+@mixin flex_align_center() {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@mixin flex_align_end() {
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+@mixin flex_space_between() {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify;
+}
+
+@mixin flex_content_center() {
+  -webkit-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+}
+
+@mixin flex_content_end() {
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  -ms-flex-pack: end;
+}
+
+@mixin flex_content_around() {
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -ms-flex-pack: distribute;
+}
+
+@mixin flex_container_wrap() {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+}
+
+@mixin flex_direction_column() {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+}
+
+@mixin three_point_reader_outer() {
+  overflow: hidden;
+  width: 100%;
+}
+
+@mixin three_point_reader_inner() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+//複数行の3点リーダー
+@mixin three_point_reader_inner_line($num: 2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $num;
+  overflow: hidden;
+}
+
+.align_c {
+  text-align: center !important;
+}
+
+.align_r {
+  text-align: right !important;
+}
+
+.align_l {
+  text-align: left !important;
+}
+
+.flex_box {
+  -js-display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex_align_baseline {
+  align-items: baseline;
+}
+
+.flex_align_start {
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.flex_align_stretch {
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.flex_align_center {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.flex_align_end {
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.flex_space_between {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify;
+}
+
+.flex_content_center {
+  -webkit-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+}
+
+.flex_content_end {
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  -ms-flex-pack: end;
+}
+
+.flex_content_around {
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -ms-flex-pack: distribute;
+}
+
+.flex_container_wrap {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.App {
+  height: 100%;
+  width: 100%;
+  .App_inner {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.main_wrap {
+  height: calc(100% - #{$headerHeight});
+  overflow: auto;
+  @include flex_box();
+  @include flex_content_center();
+  @include flex_align_center();
+  position: relative;
+}
+
+.contents_wrap {
+  max-width: 320px;
+  width: 100%;
+  margin: 1rem;
+}
+
+// パスワード表示・非表示のアイコン
+.input_wrap {
+  position: relative;
+
+  .password_eye {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+
+    img {
+      width: 20px;
+      display: block;
+      &.password_hide {
+        height: 15px;
+      }
+    }
+  }
+  .password_login_eye {
+    position: absolute;
+    top: calc(50% + 25px / 2);
+    right: 0;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+
+    img {
+      width: 20px;
+      display: block;
+      &.password_hide {
+        height: 15px;
+      }
+    }
+  }
+}
+
+p.annotation {
+  display: inline-block;
+  margin-top: auto;
+  font-size: 0.8em;
+}
+
+/******************************************
+
+                                       バリデーションメッセージ共通のスタイル定義
+
+******************************************/
+
+/* 名刺情報入力画面のCSS **************************************************/
+.input_card_info_validation {
+  margin-bottom: 0px !important;
+  + .alert_message_wrap {
+    margin-left: 50px;
+  }
+  /* バリデーションが表示されていない場合の余白設定 */
+  + .alert_message_padding {
+    padding-bottom: 22px;
+  }
+}
+
+/* バリデーションメッセージ共通のスタイル **************************************************/
+.alert_message_wrap {
+  font-size: 14px;
+  height: 0;
+  color: $validationMsgColor;
+  // padding-bottom: 5px;
+}
+
+/* 設定画面のCSS **************************************************/
+.config_validation {
+  margin-bottom: 0px !important;
+
+  /* バリデーションが表示されていない場合の余白設定 */
+  + .alert_message_padding {
+    padding-bottom: 10px;
+  }
+}
+
+/* 同行者入力画面のCSS **************************************************/
+.alert_message_padding {
+  padding-bottom: 20px;
+  text-align: right;
+}
+
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 10000;
+  div {
+    position: fixed;
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+    /*transform: translate(-50%, -50%),*/
+    img {
+      @include loading();
+    }
+  }
+}

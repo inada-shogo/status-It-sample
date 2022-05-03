@@ -1,0 +1,13 @@
+@import "../../../common.scss";
+
+header {
+  padding: 2rem;
+  background-color: #fafafa;
+  box-shadow: 0 8px 8px -8px #777777;
+}
+
+.header-inner {
+  @include flex_box();
+  @include flex_space_between();
+  @include flex_align_center();
+}
