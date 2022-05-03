@@ -1,5 +1,6 @@
 @import "../../../common.scss";
 
+/* ステータス管理セクション **************************************************/
 .status_wrap {
   margin-bottom: 5rem;
   width: 100%;
@@ -48,20 +49,7 @@
   background-color: #FFE8E8;
 }
 
-.status-button {
-  font-size: 1.6rem;
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  text-align: center;
-  line-height: 3.5;
-  width: 60px;
-  height: 60px;
-  border-radius: 100vh;
-  color: #fff;
-  background: #02289B;
-}
-
+/* 設定ボタン **************************************************/
 .config-wrap {
   position: fixed;
   bottom: 1rem;
@@ -73,11 +61,12 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  line-height: 0;
   border: 0;
   border-radius: 100vh;
   background: #7a7a7a;
   color: #fff;
-  padding: 1.2rem 1.5rem;
+  padding: 1.2rem 1.2rem;
   font-size: 16px;
   box-shadow: 0 12px 14px -5px #777777;
   &:active {
@@ -87,24 +76,5 @@
 
 .custom-button {
   @include btnStyleSystemPersonInCharge();
-  > img {
-    padding-top: .2rem;
-  }
-}
-
-.logout {
-  line-height: 0;
-  &-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    padding: 0;
-    line-height: 0;
-    appearance: none;
-  }
-  &:active {
-    opacity: 0.7;
-  }
 }
 

@@ -10,4 +10,14 @@ header {
   @include flex_box();
   @include flex_space_between();
   @include flex_align_center();
+  &_left {
+    color: #616161;
+    font-weight: bold;
+  }
+  &_right {
+    line-height: 0;
+    &:active {
+      opacity: 0.7;
+    }
+  }
 }

@@ -12,17 +12,18 @@ import { ReactComponent as AcFew } from '../../../asset/svg/ac-few.svg';
 import { ReactComponent as AcFullHouse } from '../../../asset/svg/ac-full-house.svg';
 import config from '../../../asset/svg/config.svg';
 import logout from '../../../asset/svg/logout.svg';
-import {StatusType} from "../../../entities/status";
 import {useDispatch, useSelector} from "react-redux";
 import {MaActions} from "../../../redux/management/management.action";
 import {State} from "../../../redux/root.reducer";
+import {StatusType} from "../../../redux/management/management.type";
 
 export const Management = () => {
 
   const dispatch = useDispatch();
 
-  const {status} = useSelector((state: State) => ({
-    status: state.management.status
+  const {status, setting} = useSelector((state: State) => ({
+    status: state.management.status,
+    setting: state.management.setting,
   }));
 
   const handleChangeState = useCallback(async (props: StatusType) => {
@@ -32,6 +33,7 @@ export const Management = () => {
 
   useEffect(() => {
     dispatch(MaActions.api.get.status());
+    dispatch(MaActions.api.get.setting());
   }, [dispatch]);
 
   // リアルタイム取得
@@ -45,12 +47,8 @@ export const Management = () => {
     <>
       <header>
         <div className='header-inner'>
-          <div>管理画面</div>
-          <div className='logout'>
-            <button className='logout-button'>
-              <img src={logout} alt=""/>
-            </button>
-          </div>
+          <div className='header-inner_left'>管理画面</div>
+          <div className='header-inner_right'><a href={setting.url} target="_blank" rel="noreferrer"><img src={logout} alt=""/></a></div>
         </div>
       </header>
       <div className='main_wrap'>

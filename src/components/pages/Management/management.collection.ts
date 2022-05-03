@@ -10,7 +10,7 @@ export class ManagementCollection {
     endTime: '',
     startTime: '',
     holiday: '',
-    isDisplay: '',
+    isDisplay: true,
     url: '',
   }
 }

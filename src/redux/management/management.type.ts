@@ -18,7 +18,7 @@ export type StatusType = {
 export type SettingType = {
   endTime?: string,
   holiday?: string,
-  isDisplay?: string,
+  isDisplay?: boolean,
   startTime?: string,
   url?: string
 }
