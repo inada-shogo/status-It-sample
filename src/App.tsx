@@ -4,6 +4,7 @@ import "./App.scss";
 import {Login} from "./components/pages/login/login";
 import {Management} from "./components/pages/Management/management";
 import {RoutingPath} from "./routes/routing-path";
+import {Setting} from "./components/pages/setting/setting";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path={RoutingPath.login} element={<Login/>}/>
         <Route path={RoutingPath.management} element={<Management/>}/>
+        <Route path={RoutingPath.setting} element={<Setting/>}/>
         <Route path="/" element={<Navigate to={RoutingPath.login}/>}/>
       </Routes>
     </div>

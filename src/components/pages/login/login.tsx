@@ -54,7 +54,7 @@ export const Login = () => {
     <>
       <header>
         <div className='header-inner'>
-          <div className='header-inner_left'>ログイン画面</div>
+          <div className='header-inner_left'>ログイン</div>
         </div>
       </header>
       <div className='main_wrap'>

@@ -60,7 +60,7 @@ export const Management = () => {
     <>
       <header>
         <div className='header-inner'>
-          <div className='header-inner_left'>管理画面</div>
+          <div className='header-inner_left'>管理</div>
           <div className='header-inner_right'><a href={setting.url} target="_blank" rel="noreferrer"><img src={logout}
                                                                                                           alt=""/></a>
           </div>
@@ -181,7 +181,7 @@ export const Management = () => {
         </div>
         <div className='config-wrap'>
           <button className='custom-button' onClick={() => {
-            navigate(RoutingPath.login)
+            navigate(RoutingPath.setting)
           }}>
             <img src={config} alt='設定'/>
           </button>
