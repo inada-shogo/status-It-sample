@@ -135,7 +135,7 @@ export const Setting = () => {
           </div>
           <div className='button-wrap'>
             <button className='reset-button' onClick={() => {setSetting(storeSetting)}}>リセット</button>
-            <button className='register-button' onClick={handleClickButton}>更新</button>
+            <button disabled={isSuccess} className='register-button' onClick={handleClickButton}>更新</button>
           </div>
           <div className={'success_wrap ' + (isSuccess ? "success_animation" : "")}>
             <p className='success_text'>更新完了</p>
