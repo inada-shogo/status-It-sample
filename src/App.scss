@@ -26,6 +26,7 @@ body {
   word-wrap: break-word;
   font-family: $commonFont;
 }
+*{-webkit-tap-highlight-color: transparent;}
 
 $breakpoints: (
   //320px~767px（スマホサイズ）
@@ -266,110 +267,4 @@ select {
   max-width: 320px;
   width: 100%;
   margin: 1rem;
-}
-
-// パスワード表示・非表示のアイコン
-.input_wrap {
-  position: relative;
-
-  .password_eye {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-
-    img {
-      width: 20px;
-      display: block;
-      &.password_hide {
-        height: 15px;
-      }
-    }
-  }
-  .password_login_eye {
-    position: absolute;
-    top: calc(50% + 25px / 2);
-    right: 0;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-
-    img {
-      width: 20px;
-      display: block;
-      &.password_hide {
-        height: 15px;
-      }
-    }
-  }
-}
-
-p.annotation {
-  display: inline-block;
-  margin-top: auto;
-  font-size: 0.8em;
-}
-
-/******************************************
-
-                                       バリデーションメッセージ共通のスタイル定義
-
-******************************************/
-
-/* 名刺情報入力画面のCSS **************************************************/
-.input_card_info_validation {
-  margin-bottom: 0px !important;
-  + .alert_message_wrap {
-    margin-left: 50px;
-  }
-  /* バリデーションが表示されていない場合の余白設定 */
-  + .alert_message_padding {
-    padding-bottom: 22px;
-  }
-}
-
-/* バリデーションメッセージ共通のスタイル **************************************************/
-.alert_message_wrap {
-  font-size: 14px;
-  height: 0;
-  color: $validationMsgColor;
-  // padding-bottom: 5px;
-}
-
-/* 設定画面のCSS **************************************************/
-.config_validation {
-  margin-bottom: 0px !important;
-
-  /* バリデーションが表示されていない場合の余白設定 */
-  + .alert_message_padding {
-    padding-bottom: 10px;
-  }
-}
-
-/* 同行者入力画面のCSS **************************************************/
-.alert_message_padding {
-  padding-bottom: 20px;
-  text-align: right;
-}
-
-
-#loading {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.6);
-  z-index: 10000;
-  div {
-    position: fixed;
-    top: calc(50% - 25px);
-    left: calc(50% - 25px);
-    /*transform: translate(-50%, -50%),*/
-    img {
-      @include loading();
-    }
-  }
 }
