@@ -19,6 +19,7 @@ import {StatusType} from "../../../redux/management/management.type";
 import {buildStatus} from "../../../entities/status";
 import {useNavigate} from "react-router-dom";
 import {RoutingPath} from "../../../routes/routing-path";
+import {timeStamp} from "../../../entities/timeStamp";
 
 export const Management = () => {
 
@@ -33,7 +34,7 @@ export const Management = () => {
   }));
 
   const handleChangeState = useCallback(async (props: StatusType) => {
-    await setDoc(doc(db, 'sample', 'status'), props);
+    await setDoc(doc(db, 'sample', 'status'), {...props, updateTime: timeStamp()});
   }, []);
 
   useEffect(() => {
@@ -68,6 +69,7 @@ export const Management = () => {
       </header>
       <div className='main_wrap'>
         <div className='contents_wrap'>
+          <div className='time-stamp'>{status.updateTime} 更新</div>
           <div className={'status_wrap ' + status.noSmoking}>
             <div className='status_wrap-top'>
               <div className='status_wrap-title'>🚭禁煙席</div>

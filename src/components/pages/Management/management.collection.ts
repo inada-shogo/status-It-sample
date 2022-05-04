@@ -4,6 +4,7 @@ export class ManagementCollection {
   static readonly INIT_STATUS: Type.StatusType = {
     smoking: '',
     noSmoking: '',
+    updateTime: ''
   }
 
   static readonly INIT_SETTING: Type.SettingType = {
@@ -12,5 +13,6 @@ export class ManagementCollection {
     holiday: '',
     isDisplay: true,
     url: '',
+    updateTime: ''
   }
 }

@@ -48,10 +48,6 @@ export const Setting = () => {
     dispatch(MaActions.api.get.setting());
   }, [dispatch]);
 
-  useEffect(() => {
-    console.log(setting);
-  })
-
   return (
     <>
       <header>

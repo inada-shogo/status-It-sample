@@ -5,7 +5,8 @@
  */
 export type StatusType = {
   smoking?: string,
-  noSmoking?: string
+  noSmoking?: string,
+  updateTime?: string
 }
 
 /**
@@ -20,7 +21,8 @@ export type SettingType = {
   holiday?: string,
   isDisplay?: boolean,
   startTime?: string,
-  url?: string
+  url?: string,
+  updateTime?: string
 }
 
 export type ManageState = {

@@ -4,7 +4,8 @@ import {StatusType} from "../redux/management/management.type";
 export const buildStatus = (data: firebase.firestore.DocumentData) => {
   const status: StatusType = {
     smoking: data.smoking,
-    noSmoking: data.noSmoking
+    noSmoking: data.noSmoking,
+    updateTime: data.updateTime
   }
   return status;
 }

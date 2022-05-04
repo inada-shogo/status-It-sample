@@ -7,7 +7,8 @@ export const buildSetting = (data: firebase.firestore.DocumentData) => {
     endTime: data.endTime,
     holiday: data.holiday,
     url: data.url,
-    isDisplay: data.isDisplay
+    isDisplay: data.isDisplay,
+    updateTime: data.updateTime
   }
   return setting;
 }
