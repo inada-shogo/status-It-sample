@@ -8,6 +8,8 @@ import './../../../App.scss';
 import {useDispatch} from "react-redux";
 import {UserActions} from "../../../redux/user/user.action";
 import './../../common/input/input.scss';
+import './login.scss';
+import logout from "../../../asset/svg/logout.svg";
 
 type InfoType = {
   email: string,
@@ -21,7 +23,9 @@ export const Login = () => {
   const [info, setInfo] = useState<InfoType>({
     email: '',
     pass: ''
-  })
+  });
+
+  const [isFailed, setIsFailed] = useState<boolean>(false);
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
@@ -33,25 +37,31 @@ export const Login = () => {
     setShowPassword(state);
   }, []);
 
-
   const handleClickLoginButton = useCallback(() => {
+    setIsFailed(false);
     signInWithEmailAndPassword(auth, info.email, info.pass)
       .then((userCredential) => {
         // const user = userCredential.user;
         dispatch(UserActions.setIsLogin(true));
         navigate(RoutingPath.management);
       })
-      .catch((error) => {
+      .catch(() => {
+        setIsFailed(true);
         dispatch(UserActions.setIsLogin(false));
-        // const errorCode = error.code;
-        // const errorMessage = error.message;
       });
   }, [dispatch, auth, navigate, info.email, info.pass]);
 
   return (
     <>
+      <header>
+        <div className='header-inner'>
+          <div className='header-inner_left'>ログイン画面</div>
+        </div>
+      </header>
       <div className='main_wrap'>
-        <div className='contents_wrap'>
+        <div className='contents_wrap login_box'>
+          <div className='login_title'>logo</div>
+          <div className={'error_text ' + (isFailed ? "isShow" : "")}>※メールアドレスまたはパスワードが正しくありません</div>
           <div className="input-wrap">
             <label className="input-label">
               <input

@@ -1,0 +1,27 @@
+.login_box {
+  position: relative;
+  border-radius: 10px;
+  padding: 10rem 1rem;
+  color: #333333;
+  box-shadow: 0 0 15px -3px #777777;
+}
+
+.login_title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 25%);
+  -ms-transform: translate(-50%, 25%);
+  font-weight: bold;
+}
+.error_text {
+  text-align: center;
+  font-size: 1.2rem;
+  padding-bottom: .3rem;
+  color: #e53935;
+  opacity: 0;
+}
+
+.isShow {
+  opacity: 1;
+}

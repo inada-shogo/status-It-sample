@@ -8,7 +8,17 @@
   border: 1px solid #0069c0;
   outline: none;
   box-shadow: 0 0 5px 1px rgba(0, 129, 255, 0.5);
+  transition: 0.3s;
 }
+
+.input-error {
+  border: 1px solid #da3c41;
+  outline: none;
+  box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
 .input-wrap input {
   font-size: 1.4rem;
   box-sizing: border-box;
@@ -57,6 +67,7 @@
   margin-top: 1rem;
   padding: 8px 16px;
   font-size: 1.4rem;
+  font-weight: bold;
   cursor: pointer;
 
   &:hover {
