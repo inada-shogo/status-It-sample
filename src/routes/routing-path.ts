@@ -1,10 +1,6 @@
 export const RoutingPath = {
-  /** top */
-  top: '/top',
-  /** テストページ１ */
-  test1: '/test/1',
-  /** テストページ2 */
-  test2: '/test/2',
+  /** ログイン */
+  login: '/',
   /** 管理画面 */
   management: '/management'
 };

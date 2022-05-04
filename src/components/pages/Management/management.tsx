@@ -17,19 +17,30 @@ import {MaActions} from "../../../redux/management/management.action";
 import {State} from "../../../redux/root.reducer";
 import {StatusType} from "../../../redux/management/management.type";
 import {buildStatus} from "../../../entities/status";
+import {useNavigate} from "react-router-dom";
+import {RoutingPath} from "../../../routes/routing-path";
 
 export const Management = () => {
 
   const dispatch = useDispatch();
 
-  const {status, setting} = useSelector((state: State) => ({
+  const navigate = useNavigate();
+
+  const {isLogin, status, setting} = useSelector((state: State) => ({
+    isLogin: state.user.isLogin,
     status: state.management.status,
     setting: state.management.setting,
   }));
 
   const handleChangeState = useCallback(async (props: StatusType) => {
     await setDoc(doc(db, 'sample', 'status'), props);
-  }, [dispatch]);
+  }, []);
+
+  useEffect(() => {
+    if (!isLogin) {
+      navigate(RoutingPath.login)
+    }
+  }, [navigate, isLogin]);
 
   useEffect(() => {
     dispatch(MaActions.api.get.status());
