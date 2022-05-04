@@ -180,7 +180,9 @@ export const Management = () => {
           </div>
         </div>
         <div className='config-wrap'>
-          <button className='custom-button'>
+          <button className='custom-button' onClick={() => {
+            navigate(RoutingPath.login)
+          }}>
             <img src={config} alt='設定'/>
           </button>
         </div>

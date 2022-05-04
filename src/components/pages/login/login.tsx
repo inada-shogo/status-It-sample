@@ -9,7 +9,6 @@ import {useDispatch} from "react-redux";
 import {UserActions} from "../../../redux/user/user.action";
 import './../../common/input/input.scss';
 import './login.scss';
-import logout from "../../../asset/svg/logout.svg";
 
 type InfoType = {
   email: string,
